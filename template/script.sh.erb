@@ -8,7 +8,7 @@ setup_env () {
   #export SINGULARITY_BINDPATH="/etc,/media,/mnt,/opt,/srv,/usr,/var"
   #export PATH="$PATH:/usr/lib/rstudio-server/bin"
   #export SINGULARITYENV_PATH="$PATH"
-  module add rstudio-server
+  module add singularity rstudio-server rstudio_singularity
 }
 setup_env
 
@@ -52,7 +52,7 @@ set -x
 # Launch the RStudio Server
 echo "Starting up rserver..."
 
-rserver\
+singularity run -B "$TMPDIR:/tmp" "$RSTUDIO_SERVER_IMAGE" \
  --www-port "${port}" \
  --auth-none 0 \
  --auth-pam-helper-path "${RSTUDIO_AUTH}" \
