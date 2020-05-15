@@ -2,5 +2,10 @@
 batch_connect:
   template: "basic"
   header: | 
-    module purge
     module add <%= modules %>
+script:
+  native:
+    - "-n"
+    - "<%= bc_num_slots.blank? ? 1 : bc_num_slots.to_i %>"
+    - "--mem-per-cpu"
+    - "<%= mem_per_core.blank? ? '8G' : mem_per_core %>"

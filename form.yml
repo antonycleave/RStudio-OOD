@@ -4,6 +4,7 @@ form:
   - bc_queue
   - bc_num_hours
   - bc_num_slots
+  - mem_per_core
   - modules
   - bc_email_on_started
 
@@ -13,3 +14,10 @@ attributes:
     options:
       - [ "R/3.5.1-foss-2018b","lang/R/3.5.1-foss-2018b" ]
       - [ "R/3.6.0-foss-2019a", "lang/R/3.6.0-foss-2019a" ]
+      - [ "R/3.6.2-foss-2019b", "lang/R/3.6.2-foss-2019b" ]
+  bc_num_slots:
+    label: "number of cores to request for the job (you are limited to 1 node)"
+  mem_per_core:
+    value: 8G
+    label: "Ammount of RAM to request per CPU core"
+
